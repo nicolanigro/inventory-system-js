@@ -33,16 +33,9 @@ class PerishableProduct extends Product {
   }
 }
 
-// TESTING
-const milk = new PerishableProduct("Milk", 4.5, 10, "2026-04-01");
-const apple = new Product("Apple", 2.5, 20);
-
-const products = [milk, apple];
-
-console.log("Before discount:");
-products.forEach(p => console.log(p.toString()));
-
-Product.applyDiscount(products, 0.10);
-
-console.log("After discount:");
-products.forEach(p => console.log(p.toString()));
+// Store Class (empty for now)
+class Store {
+  constructor() {
+    this.inventory = [];
+  }
+}
