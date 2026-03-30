@@ -13,3 +13,7 @@ class Product {
     return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}`;
   }
 }
+const apple = new Product("Apple", 2.5, 10);
+
+console.log(apple.toString());
+console.log("Total value:", apple.getTotalValue());
