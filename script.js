@@ -46,4 +46,9 @@ class Store {
       return total + product.getTotalValue();
     }, 0);
   }
+
+  findProductByName(name) {
+    const found = this.inventory.find(product => product.name === name);
+    return found || null;
+  }
 }
