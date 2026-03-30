@@ -1,4 +1,3 @@
-// Product Class
 class Product {
   constructor(name, price, quantity) {
     this.name = name;
@@ -21,7 +20,6 @@ class Product {
   }
 }
 
-// PerishableProduct Class
 class PerishableProduct extends Product {
   constructor(name, price, quantity, expirationDate) {
     super(name, price, quantity);
@@ -33,9 +31,13 @@ class PerishableProduct extends Product {
   }
 }
 
-// Store Class (empty for now)
+// Store Class
 class Store {
   constructor() {
     this.inventory = [];
+  }
+
+  addProduct(product) {
+    this.inventory.push(product);
   }
 }
