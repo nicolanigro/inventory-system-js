@@ -11,7 +11,7 @@ class Product {
   }
 
   toString() {
-    return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}`;
+    return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}`;
   }
 
   static applyDiscount(products, discount) {
@@ -29,7 +29,7 @@ class PerishableProduct extends Product {
   }
 
   toString() {
-    return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}, Expiration Date: ${this.expirationDate}`;
+    return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}, Expiration Date: ${this.expirationDate}`;
   }
 }
 
@@ -42,7 +42,6 @@ const products = [milk, apple];
 console.log("Before discount:");
 products.forEach(p => console.log(p.toString()));
 
-// Apply 10% discount
 Product.applyDiscount(products, 0.10);
 
 console.log("After discount:");
