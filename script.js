@@ -14,7 +14,6 @@ class Product {
     return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}`;
   }
 
-  // STATIC METHOD
   static applyDiscount(products, discount) {
     products.forEach(product => {
       product.price = product.price * (1 - discount);
@@ -34,8 +33,17 @@ class PerishableProduct extends Product {
   }
 }
 
-// Existing test
+// TESTING
 const milk = new PerishableProduct("Milk", 4.5, 10, "2026-04-01");
+const apple = new Product("Apple", 2.5, 20);
 
-console.log(milk.toString());
-console.log("Total value:", milk.getTotalValue());
+const products = [milk, apple];
+
+console.log("Before discount:");
+products.forEach(p => console.log(p.toString()));
+
+// Apply 10% discount
+Product.applyDiscount(products, 0.10);
+
+console.log("After discount:");
+products.forEach(p => console.log(p.toString()));
