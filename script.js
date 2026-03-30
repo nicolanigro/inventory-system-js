@@ -1,3 +1,4 @@
+// Product Class
 class Product {
   constructor(name, price, quantity) {
     this.name = name;
@@ -13,7 +14,6 @@ class Product {
     return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}`;
   }
 }
-const apple = new Product("Apple", 2.5, 10);
 
-console.log(apple.toString());
-console.log("Total value:", apple.getTotalValue());
+// PerishableProduct Class (empty for now)
+class PerishableProduct extends Product {}
