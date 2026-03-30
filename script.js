@@ -1,3 +1,6 @@
+// ===============================
+// Product Class
+// ===============================
 class Product {
   constructor(name, price, quantity) {
     this.name = name;
@@ -20,6 +23,9 @@ class Product {
   }
 }
 
+// ===============================
+// PerishableProduct Class
+// ===============================
 class PerishableProduct extends Product {
   constructor(name, price, quantity, expirationDate) {
     super(name, price, quantity);
@@ -31,7 +37,9 @@ class PerishableProduct extends Product {
   }
 }
 
+// ===============================
 // Store Class
+// ===============================
 class Store {
   constructor() {
     this.inventory = [];
@@ -53,22 +61,62 @@ class Store {
   }
 }
 
-// TESTING STORE
+// ===============================
+// FINAL TESTING
+// ===============================
+
+// Create store
 const store = new Store();
 
+// Create products
 const p1 = new Product("Apple", 2.5, 50);
 const p2 = new Product("Bread", 3, 20);
 const p3 = new Product("Rice", 10, 15);
 const p4 = new PerishableProduct("Milk", 4.5, 10, "2026-04-01");
 const p5 = new PerishableProduct("Cheese", 6, 8, "2026-04-10");
 
+// Add to store
 store.addProduct(p1);
 store.addProduct(p2);
 store.addProduct(p3);
 store.addProduct(p4);
 store.addProduct(p5);
 
-console.log("Inventory Value:", store.getInventoryValue());
+// ===============================
+// BEFORE DISCOUNT
+// ===============================
+console.log("=== BEFORE DISCOUNT ===");
+console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
 
-const found = store.findProductByName("Milk");
-console.log(found ? found.toString() : "Not found");
+// Print all products
+store.inventory.forEach(product => {
+  console.log(product.toString());
+});
+
+// ===============================
+// APPLY 15% DISCOUNT
+// ===============================
+Product.applyDiscount(store.inventory, 0.15);
+
+// ===============================
+// AFTER DISCOUNT
+// ===============================
+console.log("=== AFTER 15% DISCOUNT ===");
+console.log("Total Inventory Value:", store.getInventoryValue().toFixed(2));
+
+// Print all products again
+store.inventory.forEach(product => {
+  console.log(product.toString());
+});
+
+// ===============================
+// FIND PRODUCT
+// ===============================
+const search = store.findProductByName("Milk");
+
+console.log("=== SEARCH RESULT ===");
+if (search) {
+  console.log(search.toString());
+} else {
+  console.log("Product not found");
+}
