@@ -52,3 +52,23 @@ class Store {
     return found || null;
   }
 }
+
+// TESTING STORE
+const store = new Store();
+
+const p1 = new Product("Apple", 2.5, 50);
+const p2 = new Product("Bread", 3, 20);
+const p3 = new Product("Rice", 10, 15);
+const p4 = new PerishableProduct("Milk", 4.5, 10, "2026-04-01");
+const p5 = new PerishableProduct("Cheese", 6, 8, "2026-04-10");
+
+store.addProduct(p1);
+store.addProduct(p2);
+store.addProduct(p3);
+store.addProduct(p4);
+store.addProduct(p5);
+
+console.log("Inventory Value:", store.getInventoryValue());
+
+const found = store.findProductByName("Milk");
+console.log(found ? found.toString() : "Not found");
